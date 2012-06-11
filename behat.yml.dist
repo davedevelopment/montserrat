@@ -1,0 +1,4 @@
+default:
+    extensions:
+        Behat\Montserrat\Extension:
+            prepend_paths: ['%behat.paths.base%/bin']

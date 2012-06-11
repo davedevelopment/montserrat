@@ -1,0 +1,28 @@
+{
+    "name": "davedevelopment/montserrat",
+    "type": "behat-extension",
+    "description": "CLI extension for Behat",
+    "keywords": ["cli", "test"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dave Marshall",
+            "email": "dave.marshall@atstsolutions.co.uk"
+        }
+    ],
+
+    "require": {
+        "php":          ">=5.3.2",
+        "behat/behat":  ">=2.4.0,<2.5.0-dev",
+        "symfony/process": ">=2.1.0-dev"
+    },
+
+    "autoload": {
+        "psr-0": { "Behat\\Montserrat": "src/" }
+    },
+
+    "config": {
+        "bin-dir": "bin"
+    }
+
+}
