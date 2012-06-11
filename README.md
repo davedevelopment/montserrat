@@ -4,27 +4,18 @@ Montserrat
 What is it?
 -----------
 
-Montserrat is to Behat what Aruba is to Cucumber. It's an extension for Command
+Montserrat is to [Behat](http://behat.org) what [Aruba](https://github.com/cucumber/aruba) is to [Cucumber](http://cukes.info/). It's an extension for Command
 line applications written in any programming language. I'll be trying to add as
 much of aruba's functionality as I can on an ongoing basis.
 
 Installation
 ------------
 
-Add "davedevleopment/montserrat" to your `composer.json` file
-
-```json
-
-    "require-dev": {
-        "davedevelopment/montserrat": "*"
-    }
-
-```
-
-Then install
+The only documented way to install montserrat is with
+[composer](http://getcomposer.org)
 
 ``` bash
-$ composer.phar install --dev
+$ composer.phar require --dev davedevelopment/montserrat:* 
 ```
 
 Usage
