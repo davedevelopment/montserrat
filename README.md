@@ -63,6 +63,12 @@ $ vendor/bin/behat -dl
 
 ```
 
+Contributing
+------------
+
+Fork it, branch it, check [Aruba](http://s://github.com/cucumber/aruba) to see
+how they do it, implement it and pull request for great good.
+
 Copyright
 ---------
 
