@@ -158,4 +158,23 @@ class MontserratContext extends BehatContext implements MontserratAwareInterface
         $this->getMontserrat()->cd($dir);
     }
 
+    /**
+     * @Then /^the file "([^"]*)" should contain "([^"]*)"$/
+     */
+    public function theFileShouldContain($file, $partialContent)
+    {
+        $this->getMontserrat()->checkFilePresence($file, true);
+        $this->getMontserrat()->checkFileContent($file, $partialContent, true);
+    }
+
+    /**
+     * @Given /^the file "([^"]*)" should not contain "([^"]*)"$/
+     */
+    public function theFileShouldNotContain($file, $partialContent)
+    {
+        $this->getMontserrat()->checkFilePresence($file, true);
+        $this->getMontserrat()->checkFileContent($file, $partialContent, false);
+    }
+
+
 }

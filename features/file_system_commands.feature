@@ -40,3 +40,11 @@ Feature: File System Commands
             """
         When I do montserrat I cd to "foo/nonexistant"
         Then montserrat should fail with "tmp/montserrat/foo/nonexistant is not a directory"
+
+    Scenario: Check file contents
+        Given a file named "foo" with:
+            """
+            hello world
+            """
+        Then the file "foo" should contain "hello world"
+        And the file "foo" should not contain "HELLO WORLD"

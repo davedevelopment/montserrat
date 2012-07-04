@@ -231,6 +231,54 @@ class Montserrat
     }
 
     /**
+     * Check a file exists
+     *
+     * @param string $paths
+     * @param bool $expectPresence
+     */
+    public function checkFilePresence($paths, $expectPresence)
+    {
+        $this->inCurrentDir(function() use ($paths, $expectPresence) {
+            foreach((array) $paths as $file) {
+                $present = file_exists($file);
+
+                if ($expectPresence && !$present) {
+                    throw new ExpectationException("Could not find file:$file");
+                }
+
+                if ($present && !$expectPresence) {
+                    throw new ExpectationException("Found unexpected file:$file");
+                }
+            }
+        });
+    }
+
+    /**
+     * Check a files contents
+     *
+     * @param string $file
+     * @param string $partialContent
+     * @param bool $expectMatch
+     */
+    public function checkFileContent($file, $partialContent, $expectMatch)
+    {
+        $regexp = "/" . preg_quote($partialContent, "/") . "/";
+        $this->inCurrentDir(function() use ($file, $regexp, $expectMatch) {
+            $contents = file_get_contents($file);
+
+            $match = preg_match($regexp, $contents);
+
+            if ($expectMatch && !$match) {
+                throw new ExpectationException("Could not match $match to $contents");
+            }
+
+            if ($match && !$expectMatch) {
+                throw new ExpectationException("Matched $match to $contents");
+            }
+        });
+    }
+
+    /**
      * Create a file
      *
      * @param string $fileName
